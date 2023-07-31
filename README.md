@@ -14,6 +14,6 @@ python -m pip install -r requirements.txt
 git clone https://github.com/Mlinzo/ngrok_minecraft_server_scanner
 cd ngrok_minecraft_server_scanner
 python -m venv venv
-source .\venv\Scripts\activate
+.\venv\Scripts\activate
 python -m pip install -r requirements.txt
 ```

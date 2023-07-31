@@ -1,4 +1,4 @@
-# ngrok_minecraft_server_scanner
+# ngrok minecraft server scanner
 ## Installation
 ### Linux
 ```bash

@@ -63,7 +63,7 @@ class DBBaseController():
         res = q.all()
         return [ MServer.from_orm(rec) for rec in res ]
 
-    def get(self, DB_type: typing.Type[BaseDB], id: int):
+    def get(self, DB_type: typing.Type[BaseDB], id: int) -> BaseDB | None:
         return self._conn.get(DB_type, id)
 
     def update(self, model: BaseModel, commit = False):
@@ -102,7 +102,7 @@ class DBBaseController():
             host.id = hosts_map[host.name]
         return len(hosts_to_add)
     
-    def safe_add_all_sockets(self, sockets: list[Socket], notify=False, commit=False):
+    def safe_add_all_sockets(self, sockets: list[Socket], notify=False, commit=True):
         sockets_splitted = split_by_n(sockets, 333) # slqlite has parameter limit of 999
         new_hosts_c = 0
         total_socks_to_add = 0

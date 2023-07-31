@@ -18,7 +18,7 @@ threads_logger = gen_logger('threads')
 main_logger = gen_logger('main')
 
 THREADS=2048
-THREADS_NOTIFY_PERIOD=30
+THREADS_NOTIFY_PERIOD=15
 DB_POOL_RELEASE_PERIOD=60
 SOCKET_RESPONSE_TIMEOUT=10
 DB_PATH='mservers.db'

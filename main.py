@@ -1,9 +1,8 @@
 import config
-from config import THREADS, SOCKET_RESPONSE_TIMEOUT, main_logger
+from config import THREADS, SOCKET_RESPONSE_TIMEOUT, main_logger, DB_POOL_RELEASE_PERIOD
 from utils import measure_execution_time
 from mine_scanner import  check_target_sockets_t, check_ngrok_sockets_t
 from db.controller import DBController, DBPool
-from db import schemas
 import argparse
 import sys
 
@@ -11,6 +10,8 @@ import sys
 def main(threads: int, load_from: str, timeout: int, gen_sockets: bool, output: str, pre_load_sockets: bool, db_sockets: bool):
     db = DBController()
     pool = DBPool(output_path=output)
+    if output:
+        main_logger.info(f'found servers will be dumped to {output} every {DB_POOL_RELEASE_PERIOD} seconds')
     if pre_load_sockets:
         db.load_ngrok_sockets()
         target_sockets = db.get_target_sockets()

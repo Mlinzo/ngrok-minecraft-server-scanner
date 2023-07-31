@@ -40,7 +40,7 @@ def watch_progress(total_functions: int, threaded_progress: dict[int, int]):
     while True:
         time.sleep(THREADS_NOTIFY_PERIOD)
         completed_functions = sum(threaded_progress.values())
-        print(f'[threads] completed {completed_functions:_} / {total_functions:_} functions completed')
+        print(f'[threads] completed {completed_functions:_} / {total_functions:_} function calls')
         if completed_functions >= total_functions:
             break
     threaded_progress = dict()

@@ -1,7 +1,7 @@
 # ngrok minecraft server scanner
 ## Installation
 ### Linux
-```console
+```bash
 git clone https://github.com/Mlinzo/ngrok_minecraft_server_scanner
 cd ngrok_minecraft_server_scanner
 python -m venv venv
@@ -10,7 +10,7 @@ python -m pip install -r requirements.txt
 ```
 
 ### Windows
-```console
+```bash
 git clone https://github.com/Mlinzo/ngrok_minecraft_server_scanner
 cd ngrok_minecraft_server_scanner
 python -m venv venv
@@ -20,8 +20,10 @@ python -m pip install -r requirements.txt
 
 ## Usage
 ### Help
-```console
+```bash
 python main.py -h
+```
+```console
 usage: main.py [-h] [-g [GEN_SOCKETS]] [-d [DB_SOCKETS]] [-p [PRE_LOAD_SOCKETS]] [-t THREADS] [-l LOAD] [-o OUTPUT] [-tm TIMEOUT]
 
 OPTIONS:
@@ -44,10 +46,10 @@ Example: python .\main.py --gen_sockets to generate ngrok host:port and start a 
 ```
 ### How to scan all ports on 0.tcp.eu.ngrok.io - 9.tcp.eu.ngrok.io
 Generate all possible host:port combinations and load to db with NULL status
-```console
+```bash
 python main.py --pre_load_sockets
 ```
 After all sockets have been loaded you can now run it like this to scan all host:port from database with NULL status
-```console
+```bash
 python main.py --db_sockets
 ```
